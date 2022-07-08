@@ -2,6 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  styledComponents: true,
+  experimental: {
+    forceSwcTransforms: true,
+  },
 }
 
-module.exports = nextConfig
+export default nextConfig;
