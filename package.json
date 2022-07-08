@@ -12,7 +12,6 @@
     "@chakra-ui/react": "^2.2.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@types/styled-components": "^5.1.25",
     "framer-motion": "^6",
     "next": "12.2.1",
     "react": "18.2.0",
@@ -27,6 +26,7 @@
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.1",
     "react-is": "^18.2.0",
-    "typescript": "4.7.4"
+    "typescript": "4.7.4",
+    "@types/styled-components": "^5.1.25"
   }
 }
