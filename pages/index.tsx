@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import Header from '../components/HomePage/Header'
 const Home: NextPage = () => {
   return (
     <div>
@@ -10,7 +11,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        
+        <Header companyName='得逸信息-苏皖事业部' />
       </main>
     </div>
   )
