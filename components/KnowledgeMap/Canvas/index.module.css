@@ -26,3 +26,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.node-center {
+  position: absolute;
+}
+
+.text-ellipse {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
