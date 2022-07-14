@@ -44,7 +44,7 @@ export const drawNodeArea = (nodes: Graph.Node[], container: SVGGElement, x: num
       .append('g')
       .attr('transform', `rotate(${180 + index * maxAngle})`)
       .attr('transform-origin', `${x + nodeForeignObjectRadius / 2}px ${y + nodeForeignObjectRadius / 2}px`)
-    typeContainer
+    const node = typeContainer
       .append('foreignObject')
       .attr('width', basicDistance)
       .attr('height', 2 * basicDistance)
@@ -53,16 +53,27 @@ export const drawNodeArea = (nodes: Graph.Node[], container: SVGGElement, x: num
       .selectAll('.node')
       .data(nodes)
       .join('xhtml:div')
-      .style('width', radius + 'px')
-      .style('height', radius + 'px')
       .style('position', 'absolute')
       .style('transform', (_, idx) => `rotate(${(idx + 1) * nodeMaxAngle}deg)`)
       .style('transform-origin', (_) => {
         return `${0}px ${calcBasicDistance(nodes.length, maxAngle)}px`
-      })
+      });
+    // 居中标志
+    node.append('div').classed(style['node-center'], true)
+      .style('top', radius / 2 + 'px')
+      .style('left', radius / 2 + 'px')
+      .attr('id', (item) => item.id)
+    // 节点
+    node
+      .append('div')
+      .style('transform', (_, idx) => `rotate(-${180 + index * maxAngle + (idx + 1) * nodeMaxAngle}deg)`)
+      .style('transform-origin', 'center')
+      .style('width', radius + 'px')
+      .style('height', radius + 'px')
       .classed(style['node'], true)
       .append('div')
-      .attr('id', (item) => item.id)
+      .classed(style['text-ellipse'], true)
+      .text((item) => item.name)
   })
 
   // 创建出边节点
@@ -73,7 +84,7 @@ export const drawNodeArea = (nodes: Graph.Node[], container: SVGGElement, x: num
       .append('g')
       .attr('transform', `rotate(${index * outMaxAngle})`)
       .attr('transform-origin', `${x + nodeForeignObjectRadius / 2}px ${y + nodeForeignObjectRadius / 2}px`)
-    typeContainer
+    const node = typeContainer
       .append('foreignObject')
       .attr('width', basicDistance)
       .attr('height', 2 * basicDistance)
@@ -82,25 +93,42 @@ export const drawNodeArea = (nodes: Graph.Node[], container: SVGGElement, x: num
       .selectAll('.node')
       .data(nodes)
       .join('xhtml:div')
-      .style('width', radius + 'px')
-      .style('height', radius + 'px')
       .style('position', 'absolute')
       .style('transform', (_, idx) => `rotate(${(idx + 1) * nodeMaxAngle}deg)`)
       .style('transform-origin', (_) => {
         return `${0}px ${calcBasicDistance(nodes.length, outMaxAngle)}px`
       })
+    // 居中标志
+    node.append('div').classed(style['node-center'], true)
+      .style('top', radius / 2 + 'px')
+      .style('left', radius / 2 + 'px')
+      .attr('id', (item) => item.id)
+    // 节点
+    node
+      .append('div')
+      .style('transform', (_, idx) => `rotate(-${index * maxAngle + (idx + 1) * nodeMaxAngle}deg)`)
+      .style('transform-origin', 'center')
+      .style('width', radius + 'px')
+      .style('height', radius + 'px')
       .classed(style['node'], true)
       .append('div')
-      .attr('id', (item) => item.id)
+      .classed(style['text-ellipse'], true)
+      .text((item) => item.name)
   })
 
   // 创建根节点
-  createForeignObject(container, nodeForeignObjectRadius, nodeForeignObjectRadius, x, y)
+  const node = createForeignObject(container, nodeForeignObjectRadius, nodeForeignObjectRadius, x, y)
+  // 居中标志
+  node.append('div').classed(style['node-center'], true)
+    .style('top', nodeForeignObjectRadius / 2 + 'px')
+    .style('left', nodeForeignObjectRadius / 2 + 'px')
+    .attr('id', mainNode?.id || '')
+  node
     .append('xhtml:div')
     .style('width', radius + 'px')
     .style('height', radius + 'px')
     .classed(style['node'], true)
     .append('div')
-    // .text(mainNode?.name || '')
-    .attr('id', mainNode?.id || '')
+    .text(mainNode?.name || '')
+    // .attr('id', mainNode?.id || '')
 }
