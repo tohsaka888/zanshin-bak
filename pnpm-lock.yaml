@@ -6,6 +6,7 @@ specifiers:
   '@emotion/react': ^11
   '@emotion/styled': ^11
   '@types/d3': ^7.4.0
+  '@types/lodash': ^4.14.182
   '@types/node': 18.0.3
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
@@ -13,6 +14,7 @@ specifiers:
   eslint: 8.19.0
   eslint-config-next: 12.2.2
   framer-motion: ^6
+  lodash: ^4.17.21
   next: 12.2.2
   react: 18.2.0
   react-dnd: ^16.0.1
@@ -26,8 +28,10 @@ dependencies:
   '@emotion/react': 11.9.3_dlcr7kzjh265l7kenqxjsvuiz4
   '@emotion/styled': 11.9.3_xorl7rqfpn4gtnla4dfecagcw4
   '@types/d3': 7.4.0
+  '@types/lodash': 4.14.182
   d3: 7.6.1
   framer-motion: 6.4.2_biqbaboplfbrettd7655fr4n2y
+  lodash: 4.17.21
   next: 12.2.2_beenoklgwfttvph5dgxj7na7aq
   react: 18.2.0
   react-dnd: 16.0.1_l7as7eriiwrlmjovhrwvytd6ca
@@ -3171,6 +3175,10 @@ packages:
 
   /lodash.mergewith/4.6.2:
     resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
+    dev: false
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
   /loose-envify/1.4.0:
