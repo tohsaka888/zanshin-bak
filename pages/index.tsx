@@ -11,7 +11,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <Header companyName='得逸信息-苏皖事业部' />
+        <Header companyName='Zanshin' />
       </main>
     </div>
   )
