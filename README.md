@@ -1,3 +1,5 @@
+> 此项目遇到无法解决的问题,标记为废弃
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
